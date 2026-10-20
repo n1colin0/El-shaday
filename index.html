@@ -1,0 +1,1179 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5ead7">
+  <meta name="description" content="Uma retrospectiva cheia de carinho, amizade e saudade do nosso grupo El Shaday.">
+  <title>El Shaday — Nossa História</title>
+
+  <style>
+    :root {
+      --paper: #fff9ee;
+      --paper-dark: #eddfc7;
+      --ink: #43362e;
+      --muted: #867466;
+      --accent: #a65f50;
+      --accent-dark: #814438;
+      --green: #66775a;
+      --shadow: 0 12px 32px #4b38231b;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      background:
+        radial-gradient(ellipse at 20% 10%, #ffffff9c, transparent 45%),
+        repeating-linear-gradient(
+          0deg,
+          #8d755008 0,
+          #8d755008 1px,
+          transparent 1px,
+          transparent 4px
+        ),
+        #f3e6d1;
+    }
+
+    button {
+      font: inherit;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button:focus-visible {
+      outline: 3px solid var(--green);
+      outline-offset: 4px;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .eyebrow {
+      font-family: Arial, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .script {
+      font-style: italic;
+      font-weight: normal;
+    }
+
+    .button {
+      min-height: 46px;
+      padding: 12px 20px;
+      border: 1px solid var(--accent);
+      border-radius: 4px;
+      background: var(--accent);
+      color: white;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      background: var(--accent-dark);
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--accent-dark);
+    }
+
+    .button.secondary:hover {
+      background: #a65f5012;
+    }
+
+    /* TELA INICIAL */
+
+    .intro {
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      padding: 28px 18px;
+      text-align: center;
+    }
+
+    .intro-card {
+      width: min(100%, 680px);
+      padding: clamp(28px, 6vw, 64px);
+      background: #fff9e9e8;
+      border: 1px solid #c9b69a;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .intro-card::before,
+    .intro-card::after {
+      content: "";
+      position: absolute;
+      width: 75px;
+      height: 22px;
+      background: #d4b98380;
+      top: -9px;
+      left: calc(50% - 37px);
+      transform: rotate(-3deg);
+    }
+
+    .intro h1 {
+      margin: 12px 0;
+      font-size: clamp(2.8rem, 9vw, 5.5rem);
+      line-height: 0.98;
+      font-weight: normal;
+    }
+
+    .intro h1 span {
+      display: block;
+      color: var(--accent);
+      font-style: italic;
+    }
+
+    .intro-text {
+      max-width: 480px;
+      margin: 24px auto;
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.8;
+    }
+
+    .intro-heart {
+      color: var(--accent);
+      font-size: 2rem;
+    }
+
+    /* PERGUNTA ANTES DO ÁLBUM */
+
+    .question-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      background: #30241bd9;
+      backdrop-filter: blur(8px);
+    }
+
+    .question-card {
+      width: min(100%, 440px);
+      padding: clamp(25px, 6vw, 42px);
+      background: var(--paper);
+      border: 1px solid #d4bea0;
+      box-shadow: 0 25px 80px #0004;
+      text-align: center;
+      animation: appear 0.3s ease-out;
+    }
+
+    .question-heart {
+      display: block;
+      font-size: 2.6rem;
+      color: var(--accent);
+    }
+
+    .question-card h2 {
+      font-size: clamp(1.9rem, 7vw, 2.6rem);
+      line-height: 1.12;
+      font-weight: normal;
+      margin: 14px 0;
+    }
+
+    .question-card h2 em {
+      color: var(--accent);
+    }
+
+    .question-card p:not(.eyebrow) {
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .question-actions {
+      display: grid;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .question-actions button {
+      width: 100%;
+    }
+
+    /* ÁLBUM */
+
+    .album {
+      width: min(1150px, 100%);
+      margin: 0 auto;
+      padding: 24px 20px 70px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 8px 0 22px;
+      border-bottom: 1px solid #b9a48a;
+    }
+
+    .brand {
+      font-size: 1.15rem;
+      font-style: italic;
+    }
+
+    .top-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .small-button {
+      border: 1px solid #c5b096;
+      background: #fff9ee;
+      color: var(--ink);
+      padding: 9px 12px;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+
+    .small-button:hover {
+      background: white;
+    }
+
+    .album-heading {
+      text-align: center;
+      padding: 38px 0 22px;
+    }
+
+    .album-heading h2 {
+      font-size: clamp(2.2rem, 7vw, 4rem);
+      font-weight: normal;
+      margin: 8px 0;
+    }
+
+    .album-heading p {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .photo-stage {
+      width: min(650px, 100%);
+      margin: 12px auto 22px;
+      padding: 16px;
+      background: #fffdf5;
+      box-shadow: 0 16px 45px #3e2b1d24;
+      transform: rotate(-0.5deg);
+      position: relative;
+    }
+
+    .photo-stage::before {
+      content: "";
+      position: absolute;
+      z-index: 2;
+      width: 100px;
+      height: 25px;
+      top: -11px;
+      left: calc(50% - 50px);
+      background: #ddc89b99;
+      transform: rotate(2deg);
+    }
+
+    .main-photo {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: contain;
+      background: #e6dccd;
+    }
+
+    .photo-caption {
+      padding: 18px 10px 8px;
+      text-align: center;
+    }
+
+    .photo-caption p {
+      margin: 0;
+      font-size: clamp(1.2rem, 3vw, 1.65rem);
+      font-style: italic;
+    }
+
+    .photo-number {
+      margin-top: 10px;
+      color: var(--muted);
+      font: 0.75rem Arial, sans-serif;
+      letter-spacing: 0.12em;
+    }
+
+    .progress-track {
+      height: 3px;
+      background: #d9c9b4;
+      margin: 24px auto;
+      width: min(650px, 100%);
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: var(--accent);
+      transition: width 0.3s;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin: 20px auto;
+    }
+
+    .play-status {
+      text-align: center;
+      min-height: 20px;
+      color: var(--muted);
+      font: 0.8rem Arial, sans-serif;
+    }
+
+    /* MINIATURAS */
+
+    .thumbnails {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 14px 3px 20px;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+    }
+
+    .thumbnail {
+      flex: 0 0 86px;
+      padding: 5px 5px 8px;
+      border: 1px solid #d2c0a5;
+      background: #fffaf0;
+      cursor: pointer;
+      scroll-snap-align: center;
+    }
+
+    .thumbnail img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      background: #e7dccb;
+    }
+
+    .thumbnail.active {
+      outline: 2px solid var(--accent);
+      transform: translateY(-3px);
+    }
+
+    /* COLAGEM */
+
+    .section-heading {
+      margin: 64px 0 22px;
+      text-align: center;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      font-weight: normal;
+      margin: 8px 0;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .collage {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .polaroid {
+      align-self: start;
+      padding: 8px 8px 13px;
+      background: #fffdf6;
+      box-shadow: 0 5px 16px #4a36231b;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .polaroid:nth-child(3n + 1) {
+      transform: rotate(-2deg);
+    }
+
+    .polaroid:nth-child(3n + 2) {
+      transform: rotate(1.5deg);
+    }
+
+    .polaroid:nth-child(4n) {
+      transform: rotate(2.5deg);
+    }
+
+    .polaroid:hover {
+      transform: rotate(0) scale(1.035);
+      z-index: 1;
+    }
+
+    .polaroid img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1 / 1.08;
+      object-fit: cover;
+      background: #e6dccd;
+    }
+
+    .polaroid p {
+      font-size: 0.88rem;
+      text-align: center;
+      margin: 11px 2px 0;
+      overflow-wrap: anywhere;
+    }
+
+    .center-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 28px auto;
+    }
+
+    /* MENSAGEM FINAL */
+
+    .final-message {
+      margin: 80px auto 10px;
+      max-width: 760px;
+      padding: clamp(26px, 6vw, 55px);
+      text-align: center;
+      background: #fff8e9;
+      border: 1px solid #cdb89b;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .final-message h2 {
+      font-size: clamp(2rem, 7vw, 3.5rem);
+      font-weight: normal;
+      margin: 10px 0 25px;
+    }
+
+    .final-message p {
+      font-size: 1.08rem;
+      line-height: 1.95;
+      color: #655449;
+    }
+
+    .signature {
+      margin-top: 28px;
+      font-size: 1.5rem;
+      color: var(--accent);
+      font-style: italic;
+    }
+
+    footer {
+      padding: 35px 0 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    /* VISUALIZAÇÃO DE FOTO AMPLIADA */
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      background: #201912ed;
+    }
+
+    .lightbox img {
+      display: block;
+      max-width: 100%;
+      max-height: 80svh;
+      object-fit: contain;
+      box-shadow: 0 10px 40px #0007;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      border: 1px solid #ffffff80;
+      background: #fff1;
+      color: white;
+      padding: 10px 14px;
+      cursor: pointer;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .album {
+        padding: 12px 13px 45px;
+      }
+
+      .topbar {
+        align-items: flex-start;
+      }
+
+      .brand {
+        font-size: 1rem;
+        padding-top: 7px;
+      }
+
+      .top-actions {
+        gap: 6px;
+      }
+
+      .small-button {
+        padding: 8px 9px;
+        font-size: 0.78rem;
+      }
+
+      .photo-stage {
+        padding: 9px;
+      }
+
+      .photo-caption {
+        padding: 14px 5px 5px;
+      }
+
+      .collage {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 13px;
+      }
+
+      .polaroid {
+        padding: 6px 6px 10px;
+      }
+
+      .polaroid p {
+        font-size: 0.8rem;
+      }
+
+      .controls .button {
+        padding: 10px 13px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .topbar {
+        flex-direction: column;
+      }
+
+      .top-actions {
+        justify-content: flex-start;
+      }
+
+      .collage {
+        gap: 10px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- TELA DE BOAS-VINDAS -->
+  <section class="intro" id="intro">
+    <div class="intro-card">
+      <div class="intro-heart">♡</div>
+      <p class="eyebrow">Um álbum de recordações</p>
+
+      <h1>El Shaday <span>nossa história</span></h1>
+
+      <p class="intro-text">
+        O tempo passa, os caminhos mudam, mas existem momentos
+        e amizades que continuam guardados no coração.
+        Vamos relembrar tudo isso juntos?
+      </p>
+
+      <button class="button" id="startButton">
+        Abrir nosso álbum ♡
+      </button>
+    </div>
+  </section>
+
+  <!-- PERGUNTA DE REPRODUÇÃO AUTOMÁTICA -->
+  <div class="question-modal hidden" id="questionModal"
+       role="dialog" aria-modal="true" aria-labelledby="questionTitle">
+    <div class="question-card">
+      <span class="question-heart">♡</span>
+      <p class="eyebrow">Nossa história</p>
+
+      <h2 id="questionTitle">
+        Deseja passar<br><em>automaticamente?</em>
+      </h2>
+
+      <p>
+        Escolha como quer reviver essas lembranças.
+        Não existe pressa para recordar bons momentos.
+      </p>
+
+      <div class="question-actions">
+        <button class="button" id="autoYes">
+          Sim, vamos recordar ♡
+        </button>
+
+        <button class="button secondary" id="autoNo">
+          Não, quero controlar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ÁLBUM -->
+  <main class="album hidden" id="experience">
+    <header class="topbar">
+      <div class="brand">El Shaday · Memórias</div>
+
+      <div class="top-actions">
+        <button class="small-button" id="soundButton">
+          ♫ Ativar música
+        </button>
+
+        <button class="small-button" id="autoToggle">
+          ▶ Apresentação
+        </button>
+
+        <button class="small-button" id="randomButton">
+          ✧ Surpresa
+        </button>
+      </div>
+    </header>
+
+    <section class="album-heading">
+      <p class="eyebrow">Fotografias, sorrisos e saudade</p>
+      <h2>Momentos que ficam</h2>
+      <p>Algumas lembranças merecem ser revisitadas para sempre.</p>
+    </section>
+
+    <section aria-label="Apresentação de fotografias">
+      <div class="photo-stage">
+        <img
+          id="mainPhoto"
+          class="main-photo"
+          src="fotos/01.jpeg"
+          alt="Fotografia do grupo El Shaday"
+        >
+
+        <div class="photo-caption">
+          <p id="photoCaption">Uma lembrança para guardar no coração.</p>
+          <div class="photo-number" id="photoNumber">FOTO 01 DE 121</div>
+        </div>
+      </div>
+
+      <div class="progress-track" aria-label="Progresso do álbum">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+
+      <p class="play-status" id="playStatus" aria-live="polite">
+        Escolha como deseja ver as fotografias.
+      </p>
+
+      <div class="controls">
+        <button class="button secondary" id="prevButton">
+          ← Anterior
+        </button>
+
+        <button class="button" id="playPauseButton">
+          ▶ Iniciar
+        </button>
+
+        <button class="button secondary" id="nextButton">
+          Próxima →
+        </button>
+      </div>
+
+      <div class="thumbnails" id="thumbnails"
+           aria-label="Miniaturas das fotografias"></div>
+    </section>
+
+    <!-- COLAGEM DE FOTOGRAFIAS -->
+    <section id="memories">
+      <div class="section-heading">
+        <p class="eyebrow">Pequenos pedaços da nossa história</p>
+        <h2>Nosso mural de lembranças</h2>
+        <p>Cada foto guarda uma história que merece ser lembrada.</p>
+      </div>
+
+      <div class="collage" id="collage"></div>
+
+      <div class="center-actions">
+        <button class="button secondary" id="moreButton">
+          Mostrar mais fotos
+        </button>
+
+        <button class="button secondary" id="allButton">
+          Ver todas as fotos
+        </button>
+      </div>
+    </section>
+
+    <!-- ENCERRAMENTO EMOCIONANTE -->
+    <section class="final-message" id="finalMessage">
+      <span class="question-heart">♡</span>
+      <p class="eyebrow">Para cada pessoa que fez parte disso</p>
+
+      <h2>O tempo passa.<br><em>O carinho permanece.</em></h2>
+
+      <p>
+        Talvez a vida tenha levado cada um por caminhos diferentes.
+        Talvez a rotina tenha diminuído os encontros e os dias tenham
+        passado mais rápido do que gostaríamos.
+      </p>
+
+      <p>
+        Mas existem amizades que não precisam estar presentes todos
+        os dias para continuarem sendo especiais. Existem risadas que
+        ainda conseguimos ouvir quando olhamos uma fotografia, histórias
+        que voltam à memória e momentos que sempre terão um lugar
+        especial dentro de nós.
+      </p>
+
+      <p>
+        Que a saudade nunca apague a alegria do que vivemos.
+        Que a distância nunca diminua a importância de quem caminhou
+        conosco. E que, mesmo com o passar dos anos, a gente nunca
+        esqueça o quanto foi bom compartilhar tudo isso.
+      </p>
+
+      <p>
+        Obrigado por cada sorriso, cada conversa, cada abraço e cada
+        lembrança. O tempo pode mudar muita coisa, mas não apaga aquilo
+        que foi verdadeiro.
+      </p>
+
+      <p>
+        <strong>Uma vez parte da nossa história, para sempre parte
+        das nossas lembranças.</strong>
+      </p>
+
+      <div class="signature">Com carinho e saudade, El Shaday ♡</div>
+
+      <div class="center-actions">
+        <button class="button" id="replayButton">
+          Reviver as lembranças
+        </button>
+      </div>
+    </section>
+
+    <footer>
+      Feito com carinho para guardar uma história que merece ser lembrada.
+    </footer>
+  </main>
+
+  <!-- FOTO AMPLIADA -->
+  <div class="lightbox hidden" id="lightbox"
+       role="dialog" aria-modal="true" aria-label="Foto ampliada">
+    <button class="lightbox-close" id="lightboxClose">
+      Fechar ✕
+    </button>
+    <img id="lightboxImage" src="" alt="Fotografia ampliada">
+  </div>
+
+  <audio id="backgroundMusic" src="musica.mp3" loop preload="none"></audio>
+
+  <script>
+    const TOTAL_PHOTOS = 95;
+    const AUTO_INTERVAL = 5000;
+    const INITIAL_COLLAGE = 12;
+
+    const captions = [
+      "Uma lembrança para guardar no coração.",
+      "Os melhores momentos são aqueles compartilhados.",
+      "Uma fotografia, mil lembranças.",
+      "Que saudade de viver tudo isso novamente.",
+      "Momentos simples que se tornaram inesquecíveis.",
+      "Amizades que deixam marcas bonitas na vida.",
+      "O tempo passa, mas a memória permanece.",
+      "Sorrisos que continuam vivos em nós.",
+      "Cada pessoa fez parte dessa história.",
+      "Bons momentos merecem ser lembrados.",
+      "A saudade é o carinho que ficou.",
+      "Uma história construída por muitas pessoas."
+    ];
+
+    const intro = document.getElementById("intro");
+    const questionModal = document.getElementById("questionModal");
+    const experience = document.getElementById("experience");
+    const music = document.getElementById("backgroundMusic");
+
+    const mainPhoto = document.getElementById("mainPhoto");
+    const photoCaption = document.getElementById("photoCaption");
+    const photoNumber = document.getElementById("photoNumber");
+    const progressBar = document.getElementById("progressBar");
+    const playStatus = document.getElementById("playStatus");
+    const thumbnails = document.getElementById("thumbnails");
+    const collage = document.getElementById("collage");
+
+    const playPauseButton = document.getElementById("playPauseButton");
+    const autoToggle = document.getElementById("autoToggle");
+    const soundButton = document.getElementById("soundButton");
+
+    let current = 1;
+    let autoPlay = false;
+    let autoTimer = null;
+    let collageCount = 0;
+    let started = false;
+    let touchStartX = 0;
+
+    function photoPath(number) {
+  return `fotos/${String(number).padStart(2, "0")}.jpeg`;
+}
+
+    function getCaption(number) {
+      return captions[(number - 1) % captions.length];
+    }
+
+    function setPhoto(number) {
+      current = Math.max(1, Math.min(TOTAL_PHOTOS, number));
+
+      mainPhoto.src = photoPath(current);
+      mainPhoto.alt = `Fotografia ${current} de ${TOTAL_PHOTOS} do grupo El Shaday`;
+      photoCaption.textContent = getCaption(current);
+      photoNumber.textContent =
+        `FOTO ${String(current).padStart(2, "0")} DE ${TOTAL_PHOTOS}`;
+
+      progressBar.style.width = `${(current / TOTAL_PHOTOS) * 100}%`;
+
+      document.querySelectorAll(".thumbnail").forEach((button) => {
+        const active = Number(button.dataset.photo) === current;
+        button.classList.toggle("active", active);
+
+        if (active) {
+          button.setAttribute("aria-current", "true");
+          button.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+            inline: "center"
+          });
+        } else {
+          button.removeAttribute("aria-current");
+        }
+      });
+
+      if (autoPlay && current === TOTAL_PHOTOS) {
+        stopAutoPlay("Você chegou à última fotografia. Obrigado por recordar conosco! ♡");
+      }
+    }
+
+    function buildThumbnails() {
+      const fragment = document.createDocumentFragment();
+
+      for (let number = 1; number <= TOTAL_PHOTOS; number++) {
+        const button = document.createElement("button");
+        button.className = "thumbnail";
+        button.dataset.photo = number;
+        button.setAttribute("aria-label", `Abrir foto ${number}`);
+
+        const img = document.createElement("img");
+        img.src = photoPath(number);
+        img.alt = "";
+        img.loading = "lazy";
+
+        button.appendChild(img);
+        button.addEventListener("click", () => {
+          stopAutoPlay("Modo manual");
+          setPhoto(number);
+        });
+
+        fragment.appendChild(button);
+      }
+
+      thumbnails.replaceChildren(fragment);
+    }
+
+    function addCollagePhotos(amount) {
+      const end = Math.min(TOTAL_PHOTOS, collageCount + amount);
+      const fragment = document.createDocumentFragment();
+
+      for (let number = collageCount + 1; number <= end; number++) {
+        const card = document.createElement("button");
+        card.className = "polaroid";
+        card.type = "button";
+        card.setAttribute("aria-label", `Ampliar foto ${number}`);
+
+        const img = document.createElement("img");
+        img.src = photoPath(number);
+        img.alt = `Foto ${number} do álbum`;
+        img.loading = "lazy";
+
+        const caption = document.createElement("p");
+        caption.textContent = getCaption(number);
+
+        card.append(img, caption);
+        card.addEventListener("click", () => openLightbox(number));
+        fragment.appendChild(card);
+      }
+
+      collage.appendChild(fragment);
+      collageCount = end;
+
+      const moreButton = document.getElementById("moreButton");
+      moreButton.classList.toggle("hidden", collageCount >= TOTAL_PHOTOS);
+      moreButton.textContent = "Mostrar mais fotos";
+    }
+
+    function buildGallery() {
+      if (started) return;
+      started = true;
+
+      buildThumbnails();
+      addCollagePhotos(INITIAL_COLLAGE);
+      setPhoto(1);
+    }
+
+    function startAutoPlay() {
+      stopAutoPlay("", false);
+
+      if (current >= TOTAL_PHOTOS) {
+        setPhoto(1);
+      }
+
+      autoPlay = true;
+      playPauseButton.textContent = "Ⅱ Pausar";
+      autoToggle.textContent = "Ⅱ Pausar apresentação";
+      playStatus.textContent = "Apresentação automática — uma lembrança a cada 5 segundos.";
+
+      autoTimer = setInterval(() => {
+        if (current >= TOTAL_PHOTOS) {
+          stopAutoPlay("Apresentação concluída. Obrigado por recordar conosco! ♡");
+          return;
+        }
+
+        setPhoto(current + 1);
+      }, AUTO_INTERVAL);
+    }
+
+    function stopAutoPlay(message = "Apresentação pausada.", updateStatus = true) {
+      if (autoTimer !== null) {
+        clearInterval(autoTimer);
+        autoTimer = null;
+      }
+
+      autoPlay = false;
+      playPauseButton.textContent = "▶ Iniciar";
+      autoToggle.textContent = "▶ Apresentação";
+
+      if (updateStatus && message) {
+        playStatus.textContent = message;
+      }
+    }
+
+    function toggleAutoPlay() {
+      if (autoPlay) {
+        stopAutoPlay("Apresentação pausada.");
+      } else {
+        startAutoPlay();
+      }
+    }
+
+    async function toggleMusic() {
+      if (music.paused) {
+        try {
+          await music.play();
+          soundButton.textContent = "♫ Pausar música";
+        } catch (error) {
+          soundButton.textContent = "♫ Música indisponível";
+          playStatus.textContent =
+            "Não foi possível iniciar a música. Confira se musica.mp3 está na pasta do site.";
+        }
+      } else {
+        music.pause();
+        soundButton.textContent = "♫ Ativar música";
+      }
+    }
+
+    async function startExperience(automatic) {
+      autoPlay = false;
+      intro.classList.add("hidden");
+      questionModal.classList.add("hidden");
+      experience.classList.remove("hidden");
+
+      buildGallery();
+      setPhoto(1);
+
+      try {
+        await music.play();
+        soundButton.textContent = "♫ Pausar música";
+      } catch (error) {
+        soundButton.textContent = "♫ Ativar música";
+      }
+
+      if (automatic) {
+        startAutoPlay();
+      } else {
+        stopAutoPlay("Modo manual: avance quando quiser.");
+      }
+
+      experience.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function openLightbox(number) {
+      const lightbox = document.getElementById("lightbox");
+      const image = document.getElementById("lightboxImage");
+
+      image.src = photoPath(number);
+      image.alt = `Fotografia ${number} ampliada`;
+      lightbox.classList.remove("hidden");
+    }
+
+    function closeLightbox() {
+      document.getElementById("lightbox").classList.add("hidden");
+    }
+
+    function showAllPhotos() {
+      addCollagePhotos(TOTAL_PHOTOS);
+      document.getElementById("memories").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+
+    document.getElementById("startButton").addEventListener("click", () => {
+      questionModal.classList.remove("hidden");
+      document.getElementById("autoYes").focus();
+    });
+
+    document.getElementById("autoYes").addEventListener("click", () => {
+      startExperience(true);
+    });
+
+    document.getElementById("autoNo").addEventListener("click", () => {
+      startExperience(false);
+    });
+
+    document.getElementById("prevButton").addEventListener("click", () => {
+      stopAutoPlay("Modo manual");
+      setPhoto(current - 1);
+    });
+
+    document.getElementById("nextButton").addEventListener("click", () => {
+      stopAutoPlay("Modo manual");
+      setPhoto(current === TOTAL_PHOTOS ? 1 : current + 1);
+    });
+
+    playPauseButton.addEventListener("click", toggleAutoPlay);
+    autoToggle.addEventListener("click", toggleAutoPlay);
+    soundButton.addEventListener("click", toggleMusic);
+
+    document.getElementById("randomButton").addEventListener("click", () => {
+      stopAutoPlay("Fotografia surpresa!");
+      let number = Math.floor(Math.random() * TOTAL_PHOTOS) + 1;
+
+      if (TOTAL_PHOTOS > 1 && number === current) {
+        number = (number % TOTAL_PHOTOS) + 1;
+      }
+
+      setPhoto(number);
+      document.querySelector(".photo-stage").scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+    });
+
+    document.getElementById("moreButton").addEventListener("click", () => {
+      addCollagePhotos(12);
+    });
+
+    document.getElementById("allButton").addEventListener("click", showAllPhotos);
+
+    document.getElementById("replayButton").addEventListener("click", () => {
+      stopAutoPlay("", false);
+      setPhoto(1);
+      startAutoPlay();
+
+      document.querySelector(".photo-stage").scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+    });
+
+    document.getElementById("lightboxClose").addEventListener("click", closeLightbox);
+
+    document.getElementById("lightbox").addEventListener("click", (event) => {
+      if (event.target.id === "lightbox") closeLightbox();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (!experience.classList.contains("hidden")) {
+        if (event.key === "ArrowRight") {
+          stopAutoPlay("Modo manual");
+          setPhoto(current === TOTAL_PHOTOS ? 1 : current + 1);
+        }
+
+        if (event.key === "ArrowLeft") {
+          stopAutoPlay("Modo manual");
+          setPhoto(current - 1);
+        }
+
+        if (event.key === "Escape") {
+          closeLightbox();
+        }
+
+        if (event.code === "Space" &&
+            document.getElementById("lightbox").classList.contains("hidden")) {
+          event.preventDefault();
+          toggleAutoPlay();
+        }
+      }
+
+      if (event.key === "Escape" && !questionModal.classList.contains("hidden")) {
+        questionModal.classList.add("hidden");
+      }
+    });
+
+    mainPhoto.addEventListener("touchstart", (event) => {
+      touchStartX = event.changedTouches[0].screenX;
+    }, { passive: true });
+
+    mainPhoto.addEventListener("touchend", (event) => {
+      const touchEndX = event.changedTouches[0].screenX;
+      const distance = touchEndX - touchStartX;
+
+      if (Math.abs(distance) < 50) return;
+
+      stopAutoPlay("Modo manual");
+      setPhoto(distance < 0
+        ? (current === TOTAL_PHOTOS ? 1 : current + 1)
+        : current - 1);
+    }, { passive: true });
+  </script>
+</body>
+</html>
